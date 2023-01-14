@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+int maximumFrequency(vector<int> &arr, int n)
+{
+    
+    unordered_map<int,int> count;
+    int ans = 0;
+    for (int i  : arr){
+        count[i]++;
+        ans = max(ans,count[i]);
+    }
+    for (int i : arr){
+        if(ans == count[i]){
+            return i;
+        }
+    }
+}
