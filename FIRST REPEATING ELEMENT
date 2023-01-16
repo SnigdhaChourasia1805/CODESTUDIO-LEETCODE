@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+#include<unordered_map>
+using namespace std;
+
+int firstFR(vector<int>& nums){
+
+    unordered_map<int,int> ans;
+    for(int i =0; i<nums.size(); i++){
+            ans[nums[i]]++;
+    }
+    for(int i =0 ; i< nums.size(); i++){
+        if(ans[nums[i]] >1) return nums[i];
+    }
+    return 0;
+}
+int main(){
+    vector<int> arr{10, 5, 3, 4, 3, 5, 6};
+    int ans = firstFR(arr);
+    cout << ans;
+
+    return 0;
+}
