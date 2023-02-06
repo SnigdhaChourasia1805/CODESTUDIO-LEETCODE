@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int monkeyMove(int n) {
+        int mod = 1e9+7; 
+        
+        auto fn = [&](long x, int n, int m) {
+            long ans = 1 ;
+            for (; n; n >>= 1) {
+                if (n & 1) ans = ans * x % m; 
+                x = x * x % m; 
+            }
+            return ans; 
+        }; 
+        
+        return (fn(2, n, mod)-2+mod) % mod; 
+    }
+};
