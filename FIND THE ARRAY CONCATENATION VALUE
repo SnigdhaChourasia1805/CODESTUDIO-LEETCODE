@@ -1,0 +1,22 @@
+class Solution {
+public:
+    long long findTheArrayConcVal(vector<int>& nums) {
+        int i=0;int j=nums.size()-1;
+        long long ans=0;
+        while(i<j){
+            int temp=1;
+            int x=nums[j];
+            while(x/10!=0){
+                x=x/10;
+                temp++;
+            }
+            int n=(nums[i]*pow(10,temp))+nums[j];
+            ans+=n;
+            cout<<ans<<endl;
+            i++;
+            j--;
+        }
+        if(i==j)return ans+=nums[i];
+        return ans;
+    }
+};
