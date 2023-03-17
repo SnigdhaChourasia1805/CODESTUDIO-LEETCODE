@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int index=0;
+        char temp='\0';
+        int sum=0;
+        for(int i=0;i<chars.size();i++){
+            if(chars[i]!=temp){
+                temp=chars[i];
+                chars[index]=temp;
+                index++;
+                sum=1;
+            }
+            else{
+                    while( i<chars.size() && temp==chars[i] ){
+                        sum++;
+                        i++;
+                    }
+                    if(sum<10){
+                         chars[index]=sum+48;
+                         index++;
+                    }
+                    else{
+                        vector<int>t;
+                        while(sum!=0){
+                            t.insert(t.begin(),sum%10);
+                            sum=sum/10;
+                        }
+                        for(int j=0;j<t.size();j++){
+                            chars[index]=t[j]+48;
+                             index++;
+                        }
+                    }
+                 i--;
+            }
+        }
+        return index;
+    }
+};
