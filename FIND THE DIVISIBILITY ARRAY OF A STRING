@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> divisibilityArray(string w, int m) {
+        vector<int>no;
+        long long int rem=0;
+        for (int i=0;i<w.size();i++)
+        {
+            char ch=w[i];
+            int n= ch-'0';
+            rem=rem*10+(n%m);
+            cout<<rem<<endl;
+            if(rem%m==0){
+                no.push_back(1);
+            }
+            else if(rem>m){
+                rem=rem%m;
+                no.push_back(0);
+            }
+            else {
+                no.push_back(0);
+            }            
+        }
+        return no;
+    }
+};
