@@ -1,0 +1,31 @@
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(k==1){
+            return head;
+        }
+        int map[5000];
+        int node=1;
+        int size=0;
+        ListNode* temp=head;
+        while(temp){
+            map[node]=temp->val;
+            temp=temp->next;
+            node++;
+            size++;
+        }
+         ListNode* x=head;
+         int num=1;
+         int p=k;
+         int ans=size-size%k;
+         for(int i=1;i<=ans;i++){
+            x->val=map[k-i+num];
+            x=x->next;
+            if(i%p==0){
+                num+=p;
+                k=k+p;
+            }
+        }
+    return head;
+    }
+};
