@@ -1,0 +1,45 @@
+class Solution {
+public:
+long long p=pow(2,31);
+long long copy=p*-1;
+    int myAtoi(string s) {
+        unordered_set<char>set;
+        long long ans=0,i;
+        set.insert('0');
+        set.insert('1');
+        set.insert('2');
+        set.insert('3');
+        set.insert('4');
+        set.insert('5');
+        set.insert('6');
+        set.insert('7');
+        set.insert('8');
+        set.insert('9');
+        int index=0;
+        while(s[index]==' '){
+            index++;
+        }
+        if(s[index]=='-' || s[index]=='+'){
+            for(i=index+1;i<s.size();i++){
+                if(set.find(s[i])==set.end())break;
+                else
+                ans=ans*10 + (s[i]-'0');
+                if(ans>p)break;
+            }
+            if(s[index]=='-')ans=ans*-1;
+        }
+        else if(set.find(s[index])!=set.end()){
+            for(i=index;i<s.size();i++){
+                if(set.find(s[i])==set.end())break;
+                else
+                ans=ans*10 + (s[i]-'0');
+                if(ans>p)break;
+
+            }
+        }
+        if(ans<copy)return copy;
+        else if(ans>p-1)return p-1;
+        return ans;
+        
+    }
+};
