@@ -1,0 +1,23 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+         if(head==NULL)return head;
+        ListNode* temp=head;
+        ListNode* ans=head;
+        int i=0,j=0;
+        ListNode* res=new ListNode();
+        while(temp){
+            temp=temp->next; 
+            if(temp){
+                temp=temp->next;
+                i++;
+            } 
+           res=ans;
+           ans=ans->next;
+           j++;
+        }
+        cout<<i<<endl<<j;
+        if(i==j)return ans;
+        return res;
+    }
+};
