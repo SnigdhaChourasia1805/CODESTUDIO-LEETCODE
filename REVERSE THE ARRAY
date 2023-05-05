@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+void reverseArray(vector<int> &arr , int m)
+{
+	// Write your code here.
+	int n= arr.size();
+    int j=1;
+
+    for (int i = m + 1; i <= (n - j); i++) {
+
+      int temp;
+
+      temp = arr[i];
+
+      arr[i] = arr[n - j];
+
+      arr[n - j] = temp;
+
+      j++;
+    }
+}
