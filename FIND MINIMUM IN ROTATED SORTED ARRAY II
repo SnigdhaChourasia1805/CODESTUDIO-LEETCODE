@@ -1,0 +1,31 @@
+class Solution {
+
+public:
+
+int mini(vector<int>& nums , int start, int end) {
+
+        int mid=(start+end)/2;
+
+        if(end-start<=1){
+
+            // cout<<"start-end"<<start<<" "<<end<<" "<<min(nums[start],nums[end])<<endl;
+
+            return min(nums[start],nums[end]);
+
+        }
+
+            return min(mini(nums,start,mid),mini(nums,mid+1,end));
+
+    }
+
+    int findMin(vector<int>& nums) {
+
+        int start=0;
+
+        int end=nums.size()-1;
+
+    return mini(nums,start,end);
+
+    }
+
+};
