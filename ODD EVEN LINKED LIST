@@ -1,0 +1,24 @@
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        ListNode* temp=head;
+        ListNode* t;
+        int size=0;
+        while(temp){
+            t=temp;
+            size++;
+            temp=temp->next;
+        }
+        int i=1;
+        temp=head;
+        while(i<=size/2){
+            t->next=temp->next;
+            t=t->next;
+            temp->next=temp->next->next;
+            t->next=NULL;
+            i++;
+            temp=temp->next;
+        }
+        return head;
+    }
+};
