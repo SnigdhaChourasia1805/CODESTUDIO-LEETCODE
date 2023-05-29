@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int trap(vector<int>& h) {
+        if (h.size() <= 2){
+            return 0;
+        }
+        int n = h.size();
+        int maxL = h[0];
+        int maxR = h[n-1];
+        int left = 1;
+        int right = n - 2;
+        int ans = 0;
+        while (left <= right) {
+            if (maxL < maxR) {
+                if (h[left] > maxL)
+                    maxL = h[left];
+                else
+                    ans += maxL- h[left];
+                    left++;
+            } 
+            else {
+                if (h[right] > maxR)
+                    maxR = h[right];
+                else
+                    ans += maxR - h[right];
+                    right--;
+            }
+        }
+    return ans;
+    }
+};
